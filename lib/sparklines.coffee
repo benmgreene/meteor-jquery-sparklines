@@ -23,7 +23,7 @@ Template.sparkline.rendered = ->
   Template.sparkline.initialize()
   ###listen to window resize event and reinitialize to refresh chart for responsive themes###
   ###refreshCharts=_.debounce Template.sparkline.initialize(),200###
-  $(window).on 'resize',=> _.debounce(@$('div').sparkline @data.dataSeries,@data.options)
+  $(window).on 'resize',=> _.debounce(@$('div').sparkline(@data.dataSeries,@data.options),@data.refreshTime)
 
 # ##### destroyed()
 # Currently nothing is done when the component is destroyed.UPDATE-:We remove resize events on destroying template
